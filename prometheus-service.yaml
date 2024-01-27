@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: prometheus-operated
+  namespace: default
+  labels:
+    operated-prometheus: 'true'
+spec:
+  ports:
+    - name: web
+      protocol: TCP
+      port: 9090
+      targetPort: web
+  selector:
+    app: prometheus

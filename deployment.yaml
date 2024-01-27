@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  labels: 
+    release: beta
+    type: poc
+  name: nodeexpresswebapp-deployment
+spec: 
+  replicas: 3
+  selector: 
+    matchLabels: 
+      type: poc
+  template: 
+    metadata: 
+      labels: 
+        release: beta
+        type: poc
+      name: nodeexpresswebapp-pod
+    spec: 
+      containers: 
+        - image: "ashvini34/node-express-web-app:v1"
+          name: nodeexpresswebapp-container
+          ports: 
+            - containerPort: 8080
